@@ -8,4 +8,8 @@ Feature: Validating Search Functionality
     Then User validates search results contains
       | carpet   | rug          |
       | oval rug | turkish  rug |
+  @regression
+  Scenario: Validating price range functionality for second item
+    And User selects price range more than 1000
+    Then User validates price range is more than 1000
 

@@ -129,17 +129,22 @@ public class WebOrdersSteps {
     @When("User clicks on the first order checkbox and clicks it")
     public void user_clicks_on_the_first_order_checkbox_and_clicks_it() {
        webOrdersHomePage.firstCheckbox.click();
+       // Store the name who ordered the product and product name as global String variable
+       // Click on order and delete it
     }
 
     @Then("User validates that the first order deleted")
     public void user_validates_that_the_first_order_deleted() {
-        String firstOrder = driver.findElement(By.xpath("//table[@id='ctl00_MainContent_orderGrid']//tr[2]/td[2]")).getText();
-        webOrdersHomePage.deleteSelectedBtn.click();
-        int orderInfo = data.size();
-        for(int i=0, r=orderInfo+1 ; i<orderInfo ; i++, r--){
-            List<WebElement> row = driver.findElements(By.xpath("//table[@id='ctl00_MainContent_orderGrid']//tr["+r+"]/td"));
-            Assert.assertTrue(!firstOrder.equals(row.get(1).getText()));
-        }
+
+        // Check if that name and product do not exist in table
+
+//        String firstOrder = driver.findElement(By.xpath("//table[@id='ctl00_MainContent_orderGrid']//tr[2]/td[2]")).getText();
+//        webOrdersHomePage.deleteSelectedBtn.click();
+//        int orderInfo = data.size();
+//        for(int i=0, r=orderInfo+1 ; i<orderInfo ; i++, r--){
+//            List<WebElement> row = driver.findElements(By.xpath("//table[@id='ctl00_MainContent_orderGrid']//tr["+r+"]/td"));
+//            Assert.assertTrue(!firstOrder.equals(row.get(1).getText()));
+//        }
 
     }
 
